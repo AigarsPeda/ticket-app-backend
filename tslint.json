@@ -4,17 +4,12 @@
   "jsRules": {},
   "rules": {
     "ordered-imports": true,
-    "quotemark": [true, "single", "avoid-template", "avoid-escape"],
+    "quotemark": [true, "double", "avoid-template", "avoid-escape"],
     "object-curly-spacing": [true, "always"],
     "origin-ordered-imports": [true, "one-blank-line"],
     "object-literal-sort-keys": false,
     "max-classes-per-file": false,
-    "variable-name": [
-      true,
-      "ban-keywords",
-      "check-format",
-      "allow-leading-underscore"
-    ],
+    "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],
     "no-shadowed-variable": true,
     "curly": [true, "ignore-same-line"],
     "no-console": false,
@@ -23,6 +18,12 @@
     "interface-name": true,
     "no-return-await": true,
     "no-require-imports": true,
-    "no-multi-spaces": true
+    "no-multi-spaces": true,
+    "no-array-mutation": true,
+    "no-switch-case-fall-through": true,
+    "triple-equals": [true, "allow-undefined-check", "allow-null-check"],
+    "max-line-length": [true, 250],
+    "comment-format": [true, "check-space"],
+    "semicolon": [true, "always"]
   }
 }
