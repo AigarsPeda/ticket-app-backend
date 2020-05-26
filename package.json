@@ -1,12 +1,15 @@
 {
   "name": "ticket-app-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "ticket-app-backend",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.12.0"
+  }
 }
