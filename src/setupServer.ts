@@ -13,6 +13,7 @@ function middleWares(server: Koa) {
   server.use(bodyParser());
   server.use(koaCors());
 
+  // Routes
   const routes = registerRoutes().routes();
   server.use(routes);
 }
