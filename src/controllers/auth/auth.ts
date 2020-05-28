@@ -1,5 +1,5 @@
 import HTTP_STATUS from "http-status-codes";
-import JWT from "jsonwebtoken";
+// import JWT from "jsonwebtoken";
 import { Context } from "koa";
 import { firstLetterUppercase } from "../../helpers/helpers";
 import { UserModel } from "../../models/user/User.model";
@@ -22,9 +22,11 @@ export class Auth {
           role: role,
         };
         const createUser = await UserModel.create(body);
+        ctx.body = createUser;
       }
     } catch (error) {
       console.log("ERROR CREATING USER: ", error);
+      ctx.body = error;
     }
   }
 }
