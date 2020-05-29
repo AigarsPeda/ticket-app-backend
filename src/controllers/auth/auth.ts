@@ -1,5 +1,5 @@
 import HTTP_STATUS from "http-status-codes";
-// import JWT from "jsonwebtoken";
+import JWT from "jsonwebtoken";
 import { Context } from "koa";
 import { firstLetterUppercase } from "../../helpers/helpers";
 import { UserModel } from "../../models/user/User.model";
@@ -21,8 +21,14 @@ export class Auth {
           // tslint:disable-next-line: object-literal-shorthand
           role: role,
         };
-        const createUser = await UserModel.create(body);
-        ctx.body = createUser;
+        const createdUser = await UserModel.create(body);
+        const userData = {
+          id: createdUser._id,
+          username: createdUser.username,
+        };
+        const token = JWT.sign({ data: userData }, "testSecret", {});
+        // tslint:disable-next-line: object-literal-shorthand
+        ctx.body = { message: "User created successfully", token: token };
       }
     } catch (error) {
       console.log("ERROR CREATING USER: ", error);
