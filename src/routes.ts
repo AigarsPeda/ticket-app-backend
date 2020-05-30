@@ -8,6 +8,7 @@ export function registerRoutes() {
 
   // AUTH ROUTE
   router.post("/register", Auth.prototype.create);
+  router.post("/login", Auth.prototype.login);
 
   return router;
 }
