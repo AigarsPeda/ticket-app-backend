@@ -19,7 +19,7 @@
     "koa-bodyparser": "^4.3.0",
     "koa-router": "^8.0.8",
     "koa2-cors": "^2.0.6",
-    "mongoose": "^5.9.16"
+    "mongoose": "^5.9.17"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
