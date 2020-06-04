@@ -1,8 +1,8 @@
-import { ITicket } from "./../../interface/ticket.interface";
-import { Context } from "koa";
 import Joi from "@hapi/joi";
+import { Context } from "koa";
 import { TicketModel } from "../../models/ticket/Ticket.model";
 import { UserModel } from "../../models/user/User.model";
+import { ITicket } from "./../../interface/ticket.interface";
 
 const RANDOM_VALUE_MULTIPLIER = 10001;
 
@@ -23,6 +23,21 @@ export class Ticket {
       value.user = id;
       value.tickedId = `${Math.floor(Math.random() * RANDOM_VALUE_MULTIPLIER)}`;
       const ticket = await TicketModel.create(value);
+      if (ticket) {
+        await UserModel.updateOne(
+          {
+            _id: id,
+          },
+          {
+            $push: {
+              tickets: {
+                ticket: ticket._id,
+              },
+            },
+          }
+        );
+        ctx.body = { message: "Ticket added successfully", ticket };
+      }
     } catch (error) {
       ctx.body = error;
       console.log("Error addTicket: ", error);
