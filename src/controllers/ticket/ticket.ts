@@ -7,6 +7,16 @@ import { ITicket } from "./../../interface/ticket.interface";
 const RANDOM_VALUE_MULTIPLIER = 10001;
 
 export class Ticket {
+  public async getAllTickets(ctx: Context): Promise<void> {
+    try {
+      const tickets = await TicketModel.find({}).sort({ created: -1 });
+      ctx.body = { message: "All tickets", tickets };
+    } catch (error) {
+      console.log("ERROR in getAllTickets", error);
+      ctx.body = error;
+    }
+  }
+
   public async addTicket(ctx: Context): Promise<void> {
     try {
       const body: ITicket = ctx.request.body;
