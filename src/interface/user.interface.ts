@@ -5,6 +5,6 @@ export interface IUser extends mongoose.Document {
   password: string;
   role?: string;
   date?: Date;
-  // tickets?: string[];
+  tickets?: any[];
   comparePassword(password: string): Promise<boolean>;
 }
