@@ -53,4 +53,37 @@ export class Ticket {
       console.log("Error addTicket: ", error);
     }
   }
+
+  public async editTicket(ctx: Context): Promise<void> {
+    try {
+      const body: ITicket = ctx.request.body;
+      const { id } = ctx.params;
+      const schema = Joi.object().keys({
+        fullName: Joi.string().optional(),
+        email: Joi.string().optional(),
+        subject: Joi.string().optional(),
+        description: Joi.string().optional(),
+        department: Joi.string().optional(),
+        priority: Joi.string().optional(),
+      });
+      const value: ITicket = await schema.validateAsync(body);
+      await TicketModel.updateOne(
+        {
+          _id: id,
+        },
+        {
+          fullName: value.fullName,
+          email: value.email,
+          subject: value.subject,
+          description: value.description,
+          department: value.department,
+          priority: value.priority,
+        }
+      );
+      ctx.body = { message: "Ticket updated successfully" };
+    } catch (error) {
+      console.log("ERROR editTicket: ", error);
+      ctx.body = error;
+    }
+  }
 }
