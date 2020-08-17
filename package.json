@@ -20,7 +20,7 @@
     "koa-bodyparser": "^4.3.0",
     "koa-router": "^8.0.8",
     "koa2-cors": "^2.0.6",
-    "mongoose": "^5.9.26",
+    "mongoose": "^5.10.0",
     "socket.io": "^2.3.0"
   },
   "devDependencies": {
@@ -31,8 +31,8 @@
     "@types/koa-bodyparser": "^4.3.0",
     "@types/koa-router": "^7.4.1",
     "@types/koa2-cors": "^2.0.1",
-    "@types/mongoose": "^5.7.34",
-    "@types/socket.io": "^2.1.10",
+    "@types/mongoose": "^5.7.36",
+    "@types/socket.io": "^2.1.11",
     "nodemon": "^2.0.4",
     "ts-node": "^8.10.2",
     "tslint": "^6.1.2",
